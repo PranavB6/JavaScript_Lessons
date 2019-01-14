@@ -1,27 +1,64 @@
 document.writeln('Hello, world!');
 
-let array = [0,1,2];
-let lst = {value: null};
+console.log('Program start');
 
-for (let num of array) {
-    if (!lst.hasOwnProperty("value")) {
-        lst.value = num;
-        lst.rest = null;
+let array = [0, 1, 2, 3, 4, 5];
+// let lst = {value: null};
+
+// function arrayToList(array) {
+//     if (array.length == 1) {
+//         let lst = {
+//             value: array[0],
+//             rest: null
+//         };
+
+//         return lst;
+//     }
+
+//     let lst = {
+//         value: array[0],
+//         rest: arrayToList(array.slice(1, ))
+//     }
+
+//     return lst;
+// }
+
+function arrayToList(array) {
+
+    let tail = null;
+    let lst = null;
+
+    for (let i = array.length-1; i >= 0; --i) {
+        lst = {
+            value: array[i],
+            rest: tail
+        };
+
+        tail = lst;
     }
+
+    return tail;
 }
 
-let lst = {
-    value: 0,
-    rest: {
-        value: 1,
-        rest: {
-            value: 2,
-            rest: null
-        }
-    }
-};
+function listToArray(list) {
 
-printLst(lst);
+    array = [];
+    curr = list;
+
+    while (curr != null) {
+        array.push(curr.value)
+        curr = curr.rest;
+    }
+
+    return array;
+}
+
+
+console.log(listToArray(arrayToList(array)));
+
+console.log(array.entries());
+
+// printLst(lst);
 
 function printLst(lst) {
 

@@ -2,45 +2,81 @@ document.writeln('Hello, world!');
 
 console.log('Program start');
 
-class Rabbit {
-    constructor(type) {
-        this.type = type;
+class Vec {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
     }
 
-    speak(line) {
-        console.log(`The ${this.type} rabbit says ${line}`);
+    plus(other) {
+        return new Vec(this.x + other.x, this.y + other.y);
+    }
+
+    minus(other) {
+        return new Vec(this.x - other.x, this.y - other.y);
+    }
+
+    get length() {
+        return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
+    }
+
+    set length(value) {
+        this.x = 5;
+        this.y = 12;
+        console.log(`value: ${value}`);
+        console.log("x = 5, y = 12");
     }
 }
 
-let killerRabbit = new Rabbit("Killer");
-let blackRabbit = new Rabbit("Black");
+// console.log(new Vec(1, 2).plus(new Vec(2, 3)));
+// console.log(new Vec(1, 2).minus(new Vec(2, 3)));
 
-killerRabbit.speak("I'll kill you");
-blackRabbit.speak("Hi Everybody");
+// console.log(new Vec(3, 4).length);
 
-killerRabbit.full = "No";
+let vec = new Vec(3, 4);
+console.log("Length", vec.length);
+vec.length = [[6, 7], ["wfq"]];
+console.log("New length", vec.length);
 
-console.log(killerRabbit.full);
+// class Rabbit {
+//     constructor(type) {
+//         this.type = type;
+//     }
 
-let obj = {};
+//     speak(line) {
+//         console.log(`The ${this.type} rabbit says ${line}`);
+//     }
+// }
 
-let a = "abc";
+// let killerRabbit = new Rabbit("Killer");
+// let blackRabbit = new Rabbit("Black");
 
-obj[a] = "property a";
+// killerRabbit.speak("I'll kill you");
+// blackRabbit.speak("Hi Everybody");
 
-console.log(obj[a]);
-console.log(obj.a);
-console.log(obj["a"]);
-console.log(obj["abc"]);
+// killerRabbit.full = "No";
 
-console.log("-------");
+// console.log(killerRabbit.full);
 
-obj = {a: "propert a obj 2"};
+// let obj = {};
 
-console.log(obj[a]);
-console.log(obj.a);
-console.log(obj["a"]);
-console.log(obj["abc"]);
+// let a = "abc";
+
+// obj[a] = "property a";
+
+// console.log(obj[a]);
+// console.log(obj.a);
+// console.log(obj["a"]);
+// console.log(obj["abc"]);
+
+// console.log("-------");
+
+// obj = {a: "propert a obj 2"};
+
+// console.log(obj[a]);
+// console.log(obj.a);
+// console.log(obj["a"]);
+// console.log(obj["abc"]);
 
 // let array = [1, 2, 3, 4, 5, 6];
 

@@ -2,60 +2,115 @@ document.writeln('Hello, world!');
 
 console.log('Program start');
 
-class Group {
-    constructor() {
-        this.group = [];
-    }
-
-    add(value) {
-        if (!this.has(value)) {
-            this.group.push(value);
-
-        } else {
-            console.log("Already in group");
-        }
-
-        
-    }
-
-    delete(value) {
-        let idx = this.group.indexOf(value);
-
-        if (idx != -1) {
-            this.group.splice(idx, 1);
-
-        } else {
-            console.log(`${value} is not in the group`);
-        }
-    }
-
-    has(value) {
-        return (this.group.indexOf(value) != -1);
-    }
-
-    static from(objects) {
-
-        let group = new Group();
-
-        for (let object of objects) {
-            
-            group.add(object);
-        }
-
-        return group;
-    }
+const Person = function(name) {
+    this.name = name;
+    let age = 20;
+    this.greet = function() {
+        console.log(`name: ${this.name}, age: ${age}`);
+    };
 }
 
-let group = Group.from([10, 20]);
-console.log("---");
+let joe = new Person(`Joe`);
+joe.greet();
+console.log(joe.name);
+console.log(joe.age);
 
-console.log(
-    group.has(10),
-    group.has(30),
-    group.add(10),
-    group.delete(10),
-    group.has(10)
-)
+// const box = {
+//     locked: true,
+//     unlock() { this.locked = false; console.log("Unlocked");},
+//     lock() { this.locked = true; console.log("locked"); },
+//     _content: ["secrets"],
+//     notHidden: [],
+//     get content() {
+//         if (this.locked) throw new Error("Locked!");
+//         return this._content;
+//     }
+// };
+
+// function withBoxUnlocked( func ) {
+//     box.unlock();
+
+//     try {
+//         func();
+
+//     } finally {
+//         box.lock();
+
+//     }
+
+// }
+
+// // withBoxUnlocked( () => box.content.push("gold piece") );
+
+// try {
+//     withBoxUnlocked( 
+//         () => { throw new Error("Pirates on the horizon! Abort!"); }
+//     );
+// } catch (e) {
+//     console.log("Error raised:", e);
+
+// }
+
+// console.log(box.locked);
+
+// try {
+//     withBoxUnlocked()
+// }
+
+// class Group {
+//     constructor() {
+//         this.group = [];
+//     }
+
+//     add(value) {
+//         if (!this.has(value)) {
+//             this.group.push(value);
+
+//         } else {
+//             console.log("Already in group");
+//         }
+
+        
+//     }
+
+//     delete(value) {
+//         let idx = this.group.indexOf(value);
+
+//         if (idx != -1) {
+//             this.group.splice(idx, 1);
+
+//         } else {
+//             console.log(`${value} is not in the group`);
+//         }
+//     }
+
+//     has(value) {
+//         return (this.group.indexOf(value) != -1);
+//     }
+
+//     static from(objects) {
+
+//         let group = new Group();
+
+//         for (let object of objects) {
+            
+//             group.add(object);
+//         }
+
+//         return group;
+//     }
+// }
+
+// let group = Group.from([10, 20]);
+// console.log("---");
+
+// console.log(
+//     group.has(10),
+//     group.has(30),
+//     group.add(10),
+//     group.delete(10),
+//     group.has(10)
+// )
 
 
 

@@ -1,19 +1,24 @@
+import {hello} from "./import_me.mjs";
+
+let val = hello();
+
 document.writeln('Hello, world!');
 
 console.log('Program start');
 
-const Person = function(name) {
-    this.name = name;
-    let age = 20;
-    this.greet = function() {
-        console.log(`name: ${this.name}, age: ${age}`);
-    };
-}
 
-let joe = new Person(`Joe`);
-joe.greet();
-console.log(joe.name);
-console.log(joe.age);
+// const Person = function(name) {
+//     this.name = name;
+//     let age = 20;
+//     this.greet = function() {
+//         console.log(`name: ${this.name}, age: ${age}`);
+//     };
+// }
+
+// let joe = new Person(`Joe`);
+// joe.greet();
+// console.log(joe.name);
+// console.log(joe.age);
 
 // const box = {
 //     locked: true,

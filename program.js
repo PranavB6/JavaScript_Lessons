@@ -6,6 +6,29 @@ document.writeln('Hello, world!');
 
 console.log('Program start');
 
+// ----------------------------- Promises --------------------------------
+// let p1 = new Promise( (resolve, reject) => {
+
+//     setTimeout(() => resolve("p1"), 900);
+    
+// });
+
+// let p2 = new Promise( (resolve, reject) =>{
+//     setTimeout(() => resolve("p2"), 200);
+// });
+
+// // let start = Date.now();
+// // while (Date.now() < start + 2000) {}
+
+// p1.then(value => {
+//     console.log(value)
+// });
+
+// p2.then(value => {
+//     console.log(value)
+// });
+
+// ----------------------------- --- --------------------------------
 
 // const Person = function(name) {
 //     this.name = name;
@@ -62,6 +85,7 @@ console.log('Program start');
 //     withBoxUnlocked()
 // }
 
+// ----------------------------- --- --------------------------------
 // class Group {
 //     constructor() {
 //         this.group = [];
@@ -134,7 +158,7 @@ console.log('Program start');
 // print( group.has('10') );
 
 
-
+// ----------------------------- --- --------------------------------
 
 
 

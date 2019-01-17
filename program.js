@@ -1,10 +1,14 @@
-import {hello} from "./import_me.mjs";
+// let pic = document.getElementById("pic");
+// console.log(pic.src);
+// ----------------------------- --- --------------------------------
 
-let val = hello();
+// import {hello} from "./import_me.mjs";
 
-document.writeln('Hello, world!');
+// let val = hello();
 
-console.log('Program start');
+// document.writeln('Hello, world!');
+
+// console.log('Program start');
 
 // ----------------------------- Promises --------------------------------
 // let p1 = new Promise( (resolve, reject) => {
@@ -167,12 +171,12 @@ console.log('Program start');
 
 
 
-function print(...objs) {
-    console.log(objs);
-    for (let obj of objs) {
-        console.log(obj);
-    }
-}
+// function print(...objs) {
+//     console.log(objs);
+//     for (let obj of objs) {
+//         console.log(obj);
+//     }
+// }
 
 // class Vec {
 //     constructor(x, y) {

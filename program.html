@@ -1,7 +1,203 @@
 <html>
+
 <body>
-    <pre> 
-    <script src="program.js"></script>
-    </pre>  
+
+    <div>
+        <div class="balloon"> 🎈 </div>
+    </div>
+
+
+    <style>
+        .balloon {
+            font-size: 20px;
+            position: relative;
+            /* border:3px black solid; */
+        }
+    </style>
+
+    <script>
+        class Size {
+            constructor(size) { this.size = size; }
+            set val(size) { this.size = size; }
+            get val() { return this.size; }
+            get px() { return this.size + "px"; }
+        }
+
+        let balloon = document.getElementsByClassName("balloon")[0];
+        let size = new Size(20);
+
+        console.log(balloon.style.fontSize);
+
+        window.addEventListener("keydown", arrowHandler);
+
+        function arrowHandler(event) {
+            if (event.key == "ArrowUp") {
+                console.log('ArrowUp');
+                size.val *= 1.15;
+                balloon.style.fontSize = size.px;
+
+            } else if (event.key == "ArrowDown") {
+                console.log('ArrowDown');
+                size.val *= 0.85;
+                balloon.style.fontSize = size.px;
+                event.preventDefault();
+            }
+
+            if (size.val > 200) {
+                size.val = 100;
+                balloon.style.fontSize = size.px;
+                balloon.textContent = "Explosion";
+                window.removeEventListener("keydown", arrowHandler);
+            }
+        }
+
+
+
+
+
+    </script>
+    <!-- 
+    <p>Name: <input type="text" data-help="Your full name"></p>
+    <p>Age: <input type="text" data-help="Your age in years"></p>
+    <p id="help"></p>
+
+    <script>
+        let help = document.querySelector("#help");
+        let fields = document.querySelectorAll("input");
+        for (let field of Array.from(fields)) {
+            field.addEventListener("focus", event => {
+                let text = event.target.getAttribute("data-help");
+                help.textContent = text;
+            });
+            field.addEventListener("blur", event => {
+                help.textContent = "";
+            });
+        }
+    </script> 
+    -->
+
+    <!-- 
+    <style>
+        #progress {
+            border-bottom: 2px solid blue;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <div id="progress"></div>
+    <script>
+        // Create some content
+        document.body.appendChild(document.createTextNode(
+            "supercalifragilisticexpialidocious ".repeat(1000)));
+
+        let bar = document.querySelector("#progress");
+        window.addEventListener("scroll", () => {
+            let max = document.body.scrollHeight - innerHeight;
+            bar.style.width = `${(pageYOffset / max) * 100}%`;
+        });
+    </script> 
+    -->
+
+    <!-- 
+    <div style="height: 100%; border: 1px black solid; margin: 0px;"> 
+        <div id="Bar"></div>
+    </div>
+
+    
+    
+    <style>
+        body {
+            background: white;
+        }
+
+        #Bar {
+            height: 20px; width: 60px;
+            text-align: center;
+            margin: auto;
+            display: block;
+            
+            /* margin-left: auto;
+            margin-right: auto; */
+
+            border-radius: 4px;
+            background: blue;
+            /* position: absolute; */
+        }
+
+    </style>
+    -->
+    
+    <script>
+
+    // let bar = document.getElementById("Bar");
+    // let lastx;
+
+    // bar.addEventListener("mousedown", event => {
+    // if (event.button == 0) {
+    // lastx = event.clientX;
+    // window.addEventListener("mousemove", moved);
+    // event.preventDefault();
+    // }
+    // });
+
+    // function moved(event) {
+    // if (event.buttons == 0) {
+    // window.removeEventListener("mousemove", moved);
+    // return;
+    // }
+
+    // let dist = (event.clientX - lastx) * 0.25;
+    // console.log(bar.offsetHeight);
+    // let newHeight = bar.offsetHeight + dist;
+    // bar.style.height = limit(20, newHeight, 600) + "px";
+    // lastX = event.clientX;
+    // }
+
+    // function limit(min, val, max) {
+    // return val < min ? min: (val> max ? max: val);
+        // }
+
+        // window.addEventListener("click", event => makeDot(event));
+
+        // function makeDot(event) {
+        // let dot = document.createElement("div");
+        // dot.className = "dot";
+        // dot.style.left = (event.pageX - 4) + "px";
+        // dot.style.top = (event.pageY - 4) + "px";
+        // document.body.appendChild(dot);
+        // }
+
+
+        // let para = document.querySelector("p");
+        // let flower = document.getElementById("flower");
+
+        // para.addEventListener("mousedown", () => {
+        // console.log("Paragraph Handler");
+        // });
+
+        // flower.addEventListener("mousedown", (event) => {
+        // console.log("Flower Handler");
+
+        // if (event.button == 2) event.stopPropagation()
+        // })
+
+        // // let angle = Math.PI/2;
+
+        // // function animate(time, lastTime) {
+        // // if (lastTime != null) {
+        // // angle += (time - lastTime) * 0.001;
+        // // }
+        // // flower.style.top = (Math.sin(angle) * 200) + "px";
+        // // flower.style.left = (Math.cos(angle) * 200) + "px";
+        // // requestAnimationFrame(newTime => animate(newTime, time))
+        // // }
+
+        // // // console.log(requestAnimationFrame);
+        // // requestAnimationFrame(animate);
+    </script>
+
 </body>
+
 </html>

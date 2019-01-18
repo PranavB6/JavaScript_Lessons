@@ -1,11 +1,38 @@
-import {hello} from "./import_me.mjs";
+// let pic = document.getElementById("pic");
+// console.log(pic.src);
+// ----------------------------- --- --------------------------------
 
-let val = hello();
+// import {hello} from "./import_me.mjs";
 
-document.writeln('Hello, world!');
+// let val = hello();
 
-console.log('Program start');
+// document.writeln('Hello, world!');
 
+// console.log('Program start');
+
+// ----------------------------- Promises --------------------------------
+// let p1 = new Promise( (resolve, reject) => {
+
+//     setTimeout(() => resolve("p1"), 900);
+    
+// });
+
+// let p2 = new Promise( (resolve, reject) =>{
+//     setTimeout(() => resolve("p2"), 200);
+// });
+
+// // let start = Date.now();
+// // while (Date.now() < start + 2000) {}
+
+// p1.then(value => {
+//     console.log(value)
+// });
+
+// p2.then(value => {
+//     console.log(value)
+// });
+
+// ----------------------------- --- --------------------------------
 
 const Person = function(name) {
     this.name = name;
@@ -62,6 +89,7 @@ const box = {
 //     withBoxUnlocked()
 // }
 
+// ----------------------------- --- --------------------------------
 // class Group {
 //     constructor() {
 //         this.group = [];
@@ -134,6 +162,7 @@ const box = {
 // print( group.has('10') );
 
 
+// ----------------------------- --- --------------------------------
 
 
 
@@ -142,13 +171,12 @@ const box = {
 
 
 
-
-function print(...objs) {
-    console.log(objs);
-    for (let obj of objs) {
-        console.log(obj);
-    }
-}
+// function print(...objs) {
+//     console.log(objs);
+//     for (let obj of objs) {
+//         console.log(obj);
+//     }
+// }
 
 // class Vec {
 //     constructor(x, y) {

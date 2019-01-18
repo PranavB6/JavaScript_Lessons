@@ -34,30 +34,32 @@
 
 // ----------------------------- --- --------------------------------
 
-const Person = function(name) {
-    this.name = name;
-    let age = 20;
-    this.greet = function() {
-        console.log(`name: ${this.name}, age: ${age}`);
-    };
-}
+// const Person = function(name) {
+//     this.name = name;
+//     let age = 20;
+//     this.greet = function() {
+//         console.log(`name: ${this.name}, age: ${age}`);
+//     };
+// }
 
-let joe = new Person(`Joe`);
-joe.greet();
-console.log(joe.name);
-console.log(joe.age);
+// let joe = new Person(`Joe`);
+// joe.greet();
+// console.log(joe.name);
+// console.log(joe.age);
 
-const box = {
-    locked: true,
-    unlock() { this.locked = false; console.log("Unlocked");},
-    lock() { this.locked = true; console.log("locked"); },
-    _content: ["secrets"],
-    notHidden: [],
-    get content() {
-        if (this.locked) throw new Error("Locked!");
-        return this._content;
-    }
-};
+// ----------------------------- --- --------------------------------
+
+// const box = {
+//     locked: true,
+//     unlock() { this.locked = false; console.log("Unlocked");},
+//     lock() { this.locked = true; console.log("locked"); },
+//     _content: ["secrets"],
+//     notHidden: [],
+//     get content() {
+//         if (this.locked) throw new Error("Locked!");
+//         return this._content;
+//     }
+// };
 
 // function withBoxUnlocked( func ) {
 //     box.unlock();

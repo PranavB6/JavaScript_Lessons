@@ -3,6 +3,8 @@
 
 <body>
 
+    <h1>Hello! </h1>
+
     <script>
 
         let simpleLevelPlan = `
@@ -21,27 +23,18 @@
                 this.x = x;
                 this.y = y;
             }
-
-            get pos() {
-                this.x = x;
-                this.y = y;
-            }
         }
 
         class Actor {
             constructor(type) {
                 this.type = type;
-            }
-
-            set pos(vec) {
-                this.pos = vec;
-                return this;
+                this.pos = null;
             }
         }
 
         class Level {
             constructor(plan) {
-                let rows = plan.trim().split("\n").map(l => [...l]);
+                let rows = plan.replace(/ /g, '').split("\n").map(l => [...l]);
                 console.log(rows);
                 this.height = rows.length;
                 this.width = rows[0].length;
@@ -49,26 +42,36 @@
 
                 this.rows = rows.map((row, y) => {
 
-                    let a = row.map((ch, x) => {
+                    return row.map((ch, x) => {
 
                         let type = levelChars[ch];
-                        console.log(type);
 
                         if (typeof type == "string") return type;
 
-
-                        
                         type.pos = new Vec(x, y);
                         this.startActors.push(type);
 
+                        console.log(type);
+
                         return "Actor";
                     });
-
-                    // console.log("Before");
-                    console.log(a);
-
-                    return a;
                 });
+            }
+        }
+
+        class State {
+            constructor(level, actors, status) {
+                this.level = level;
+                this.actors = actors;
+                this.status = status;
+            }
+
+            static start(level) {
+                return new State(level, level.startActors, "playing");
+            }
+
+            get player() {
+                return this.actors.find(a => a.type == "player");
             }
         }
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <script>
+
+        let simpleLevelPlan = `
+        ......................
+        ..#................#..
+        ..#..............=.#..
+        ..#.........o.o....#..
+        ..#.@......#####...#..
+        ..#####............#..
+        ......#++++++++++++#..
+        ......##############..
+        ......................`;
+
+        class Vec {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+
+            get pos() {
+                this.x = x;
+                this.y = y;
+            }
+        }
+
+        class Actor {
+            constructor(type) {
+                this.type = type;
+            }
+
+            set pos(vec) {
+                this.pos = vec;
+                return this;
+            }
+        }
+
+        class Level {
+            constructor(plan) {
+                let rows = plan.trim().split("\n").map(l => [...l]);
+                console.log(rows);
+                this.height = rows.length;
+                this.width = rows[0].length;
+                this.startActors = [];
+
+                this.rows = rows.map((row, y) => {
+
+                    let a = row.map((ch, x) => {
+
+                        let type = levelChars[ch];
+                        console.log(type);
+
+                        if (typeof type == "string") return type;
+
+
+                        
+                        type.pos = new Vec(x, y);
+                        this.startActors.push(type);
+
+                        return "Actor";
+                    });
+
+                    // console.log("Before");
+                    console.log(a);
+
+                    return a;
+                });
+            }
+        }
+
+        let levelChars = {
+            ".": "empty",
+            "#": "wall",
+            "+": "lava",
+            "@": new Actor("player"),
+            "o": new Actor("coin"),
+            "=": new Actor("lava block"),
+            "|": new Actor("lava blob"),
+            "v": new Actor("dripping blob")
+        };
+
+        let lvl = new Level(simpleLevelPlan);
+
+    </script>
+</body>
+
+</html>
